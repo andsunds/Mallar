@@ -1,0 +1,19 @@
+xtext='';
+ytext='';
+
+xlabel(xtext, 'Interpreter', 'Latex', 'FontSize', 20, 'Color', 'k');
+ylabel(ytext, 'Interpreter', 'Latex', 'FontSize', 20, 'Color', 'k');
+set(gca,'FontSize',15);
+
+
+
+
+X=[   ];%Vektor med alla värden som ska in i legenden
+
+%Den här är bra att använda om man vill plotta flera grafter
+%där ett värde har ändrats för varje graf.
+legendCell = regexp(sprintf('<variabelnamn>=%0.2f',X),...
+                    'T_\{0\}=-?+\d+\.?\d*','match');
+                    
+legendCell = regexprep(legendCell,'\.','\{,\}'); %ändrar till decimalKOMMA
+legendCell = strcat('$',legendCell, '<slut-text>$'); %'$' i början och slutet för att få LaTeX-kod
