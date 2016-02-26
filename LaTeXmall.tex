@@ -130,7 +130,10 @@
 
 \newpage
 %Ser till att det blir rätt namn i rubriken
-\iflanguage{swedish}{\renewcommand{\refname}{Källförteckning}}{}
+\iflanguage{swedish}{
+\renewcommand{\refname}{Källförteckning}%för documentstyle: article
+\renewcommand{\bibname}{Källförteckning}%för documentstyle: report
+}{}
 \bibliographystyle{babunsrt}
 \bibliography{referenser}%kräver en fil som heter 'referenser.bib'          
 
