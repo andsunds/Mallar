@@ -10,6 +10,7 @@
 \usepackage{icomma}
 \usepackage{color}
 \usepackage{graphicx}
+\graphicspath{ {figurer/} }
 \usepackage{bbm}
 \newcommand{\N}{\ensuremath{\mathbbm{N}}}
 \newcommand{\Z}{\ensuremath{\mathbbm{Z}}}
@@ -25,6 +26,8 @@
 \usepackage[fixlanguage]{babelbib}
 %\selectbiblanguage{swedish}
 %\renewcommand\btxauthorcolon{:}
+%%För att få snyggare referenser
+\usepackage{cite}
 %%För att figurtext i underfigurer
 \usepackage{subfigure} 
 %%För att kunna inkludera andra PDF-dokument
@@ -98,6 +101,9 @@
 
 
 \begin{document}
+%\input{titlepages.tex}% <- extern titelsida
+
+%%%%%%%%%%%%%%%%% vvv Inbyggd titelsida vvv %%%%%%%%%%%%%%%%%
 \begin{titlepage}
 \title{}
 \author{}
@@ -120,6 +126,8 @@
 
 \pagenumbering{arabic}
 \setcounter{page}{1}
+%%%%%%%%%%%%%%%%% ^^^ Inbyggd titelsida ^^^ %%%%%%%%%%%%%%%%%
+
 
 \section{}
 
@@ -134,7 +142,7 @@
 \renewcommand{\refname}{Källförteckning}%för documentstyle: article
 \renewcommand{\bibname}{Källförteckning}%för documentstyle: report
 }{}
-\bibliographystyle{babunsrt}
+\bibliographystyle{ieeetr}
 \bibliography{referenser}%kräver en fil som heter 'referenser.bib'          
 
 \clearpage
