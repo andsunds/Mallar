@@ -89,7 +89,7 @@
 
 %%Det ska vara ett rakt µ i prefixet
 \usepackage{upgreek}
-\newcommand{\micro}{\upmu}
+\newcommand{\micro}{\ifmmode \upmu \else $\upmu$ \fi}
 %%Ohm enhetskommando
 \newcommand{\ohm}{\ifmmode \Upomega \else $\Upomega$ \fi}
 
