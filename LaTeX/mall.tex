@@ -1,4 +1,5 @@
-\documentclass[11pt,a4paper, english, swedish]{article}
+\documentclass[11pt,a4paper, english, swedish
+]{article}
 \pdfoutput=1
 
 \usepackage{custom_as}
@@ -11,11 +12,11 @@
 \usepackage{todonotes} %\todo{...}
 
 %%För att själv bestämma marginalerna. 
-%\usepackage[
+\usepackage[
 %            top    = 3cm,
 %            bottom = 3cm,
 %            left   = 3cm, right  = 3cm
-%]{geometry}
+]{geometry}
 
 %%För att ändra hur rubrikerna ska formateras
 %\renewcommand{\thesection}{...}
@@ -24,31 +25,31 @@
 
 
 \begin{document}
-%\input{titlepages.tex}% <- extern titelsida
+
+\input{titlepages.tex}% <- extern titelsida
 
 %%%%%%%%%%%%%%%%% vvv Inbyggd titelsida vvv %%%%%%%%%%%%%%%%%
-\begin{titlepage}
-\title{}
-\author{}
-\date{\today}
+% \begin{titlepage}
+% \title{}
+% \author{}
+% \date{\today}
 
-\maketitle
+% \maketitle
 
-\pagenumbering{roman} %%Romersk sidnumrering
-%\thispagestyle{empty} \pagestyle{empty} %%Ingen sidnumrering 
-
-%%Ser till att vi får rätt rubrik på svenska
-\iflanguage{swedish}{\renewcommand{\abstractname}{Sammandrag}}{}
-\begin{abstract}
+% \pagenumbering{roman} %%Romersk sidnumrering
+% %\thispagestyle{empty} \pagestyle{empty} %%Ingen sidnumrering 
 
 
-\end{abstract}
-\newpage
-\tableofcontents
-\end{titlepage}
+% \begin{abstract}
 
-\pagenumbering{arabic}
-\setcounter{page}{1}
+
+% \end{abstract}
+% \newpage
+% \tableofcontents
+% \end{titlepage}
+
+% \pagenumbering{arabic}
+% \setcounter{page}{1}
 %%%%%%%%%%%%%%%%% ^^^ Inbyggd titelsida ^^^ %%%%%%%%%%%%%%%%%
 
 %Om man vill ha en lista med vilka todo:s som finns.
@@ -61,25 +62,11 @@
 
 
 \newpage
-%Ser till att det blir rätt namn i rubriken
-\iflanguage{swedish}{
-\renewcommand{\refname}{Källförteckning}%för documentstyle: article
-\renewcommand{\bibname}{Källförteckning}%för documentstyle: report
-}{}
 \bibliographystyle{ieeetr}
 \bibliography{referenser}%kräver en fil som heter 'referenser.bib'          
 
 \clearpage
-\appendix%Resets the section counter and changes it to Alph                 
-\setcounter{page}{1} %Resets the pgenumbering                               
-\renewcommand*{\thepage}{A\arabic{page}}%Changes the pagenubering to 'A...'
-%Ser till at det blir rätt namn
-\iflanguage{swedish}{\renewcommand{\appendixname}{Bilagor}}{}
-\phantomsection{}%This one is needed to make 'Appendix' show up in the TOC
-\addcontentsline{toc}{part}{\appendixname} %Makes 'Appendix' show up in the TOC
-%Byter tillbaks till det gamla namnet
-\iflanguage{swedish}{\renewcommand{\appendixname}{Bilaga}}{}
-
+\appendix
 
 
 
