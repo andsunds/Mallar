@@ -13,7 +13,7 @@
 \DeclareOption{swedish}{
 \@swedishtrue
 }
-\newif\if@olidint\@oldintfalse
+\newif\if@oldint\@oldintfalse
 \DeclareOption{oldint}{
 \@oldinttrue
 }
@@ -154,8 +154,10 @@
 \fi
 
 %var ska integralgränserna sitta?
-\ifnot@oldint
-   \let\oldint\int
+\if@oldint
+%Gör inget om vi vill behålla gamla integraler
+\else
+   \let\oldint\int 
    \renewcommand{\int}{\oldint\limits}
 \fi
 
