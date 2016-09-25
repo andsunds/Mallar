@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[2011/06/27]%Godtyckligt valt men inte för gammalt
-\ProvidesPackage{custom_as}[2016/06/15 Custom (Andréas)]
+\ProvidesPackage{custom_as}[2016/09/25 Custom (Andréas)]
 
 
 %%För att inkludera MATLABkod. 
@@ -101,6 +101,35 @@
 %%'e' och 'i' ska vara upprätt
 \newcommand{\ee}{\mathrm{e}}
 \newcommand{\ii}{\mathrm{i}}
+
+%% Jag vill ha rätt epsilon och phi
+\newcommand{\swapcommands}[2]{ %This command swaps two commands.
+  \let\temp#1
+  \let#1#2
+  \let#2\temp
+}
+\swapcommands{\phi}{\varphi}
+\swapcommands{\epsilon}{\varepsilon}
+
+% \newcommand{\permutecommands}[3]{
+%   \let\temp#1
+%   \let#1#2
+%   \let#2#3
+%   \let#3\temp
+% } % Se exempel nedan
+% %\newcommand{\testa}{a}
+% %\newcommand{\testb}{b}
+% %\newcommand{\testc}{c}
+% %\permutecommands{\testa}{\testb}{\testc}
+% %\verb.$\phi\varphi$.\\
+% %\phi\varphi$\\
+% %\verb.$\epsilon\varepsilon$.\\
+% %$\epsilon\varepsilon$\\
+% %\verb.\testa \testb \testc.\\
+% %\testa \testb \testc
+
+
+
 
 %%Omdefiniera bf och sf för att ge kursiva tecken i matteläge
 \DeclareMathAlphabet{\mathsfit}{\encodingdefault}{\sfdefault}{m}{sl}
