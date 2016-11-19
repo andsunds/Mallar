@@ -8,6 +8,9 @@
 *.out
 *.toc
 #<namn>.pdf
+
+*-eps-converted-to.pdf
+
 #Från Beamer
 *.nav 
 *.snm
