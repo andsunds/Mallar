@@ -1,5 +1,8 @@
 # Det här en är en avsiktilgt synlig gitignore-fil som är tänkt som en mall till LaTeX-repositories.
 
+#Allmänt onödiga filer
+*~
+
 #Onödig LaTeX-output
 *.aux
 *.bbl
