@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[2011/06/27]%Arbitrarily chosen but not too old
-\ProvidesPackage{custom_as}[2017/10/26 Custom (Andréas)]
+\ProvidesPackage{custom_as}[2017/11/17 Custom (Andréas)]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -48,7 +48,6 @@
 \usepackage{lmodern}
 \usepackage{helvet}
 \usepackage{units}
-\usepackage{icomma}
 \usepackage{color}
 \usepackage{graphicx}
 \usepackage{hyperref}
@@ -146,7 +145,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% Bigger stuff %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Fixes some minor nuisances in the Swedish babel settings:
+%% Fixes some minor nuisances in the Swedish babel settings and loads
+%% icomma if Swedish is the main language
 \if@swedish
  %%Ser till att det blir rätt namn i rubriken i ToC
  \addto\captionsswedish{
@@ -160,6 +160,8 @@
    % Det heter sammandrag på svenska
    \renewcommand{\abstractname}{Sammandrag}
  }
+ \iflanguage{swedish}{%if swedish is the main language:
+   \usepackage{icomma}}
 \fi
 
 
