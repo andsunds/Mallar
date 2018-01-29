@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[2011/06/27]%Arbitrarily chosen but not too old
-\ProvidesPackage{custom_as}[2017/11/17 Custom (Andréas)]
+\ProvidesPackage{custom_as}[2018/01/29 Custom (Andréas)]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -75,7 +75,11 @@
 %% To be able to change the counter in 'enumerate':
 \usepackage{enumitem} % e.g.: [label=\alph*)]
 %% This packages has so much good stuff (see: >> texdoc physics ).
-\usepackage{physics} 
+\usepackage{physics}
+%This line is missing from the physics package to give automatic
+%backet sizing for the error function \erf
+\let\errorfunction\erf \DeclareDocumentCommand\erf{}{\opbraces{\errorfunction}}
+
 %% Enables formating of matricres:
 \usepackage{mathtools} %e.g.: \begin{pmatrix*}[r] ... \end{pmatrix*}
 %% Makes it possible to put large amounts of text as comments:
@@ -215,6 +219,8 @@
    \lstset{literate= {å}{{\r{a}}}1 {ä}{{\"a}}1 {ö}{{\"o}}1 {Å}{{\r{A}}}1
            {Ä}{{\"A}}1 {Ö}{{\"O}}1}%För att få svenska bokstäver från MATLAB.
 \fi
+
+
 
 
 
