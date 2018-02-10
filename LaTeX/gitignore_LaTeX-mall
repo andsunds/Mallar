@@ -17,3 +17,6 @@
 #Från Beamer
 *.nav
 *.snm
+
+#Från xfig
+*.fig.bak
