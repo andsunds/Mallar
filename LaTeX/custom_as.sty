@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[2011/06/27]%Arbitrarily chosen but not too old
-\ProvidesPackage{custom_as}[2018/02/10 Custom (Andréas)]
+\ProvidesPackage{custom_as}[2018/02/22 Custom (Andréas)]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -110,6 +110,9 @@
 \newcommand{\figref}{\figurename~\ref} 
 %% Table references:
 \newcommand{\tabref}{\tablename~\ref} 
+%% Section references:
+\newcommand{\sectionname}{Section}
+\newcommand{\secref}{\sectionname~\ref}
 %% Appendix references:
 \newcommand{\apxref}{\appendixname~\ref}
 
@@ -164,6 +167,7 @@
    \fi
    % Det heter sammandrag på svenska
    \renewcommand{\abstractname}{Sammandrag}
+   \renewcommand{\sectionname}{Avsnitt}
  }
  \iflanguage{swedish}{%if swedish is the main language:
    \usepackage{icomma}}
