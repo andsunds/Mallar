@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[2011/06/27]%Arbitrarily chosen but not too old
-\ProvidesPackage{custom_as}[2018/02/22 Custom (Andréas)]
+\ProvidesPackage{custom_as}[2018/05/04 Custom (Andréas)]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -110,9 +110,6 @@
 \newcommand{\figref}{\figurename~\ref} 
 %% Table references:
 \newcommand{\tabref}{\tablename~\ref} 
-%% Section references:
-\newcommand{\sectionname}{Section}
-\newcommand{\secref}{\sectionname~\ref}
 %% Appendix references:
 \newcommand{\apxref}{\appendixname~\ref}
 
@@ -120,16 +117,29 @@
 \usepackage{upgreek}
 \newcommand{\micro}{\ensuremath{\upmu}}
 
-%%'e' and 'i' should be straight:
+%% 'e' and 'i' should be straight:
 \newcommand{\ee}{\mathrm{e}}
 \newcommand{\ii}{\mathrm{i}}
 
-%% I like to swap the differents epsilons and the different phis:
-\newcommand{\swapcommands}[2]{ %This command swaps two commands.
+%% \pm and \mp with parentheses around bottom sign
+\newcommand\varpm{\mathbin{\vcenter{\hbox{%
+  \oalign{\hfil$\scriptstyle+$\hfil\cr
+          \noalign{\kern-.3ex}
+          $\scriptscriptstyle({-})$\cr}%
+}}}}
+\newcommand\varmp{\mathbin{\vcenter{\hbox{%
+  \oalign{$\scriptstyle({+})$\cr
+          \noalign{\kern-.3ex}
+          \hfil$\scriptscriptstyle-$\hfil\cr}%
+}}}}
+
+%% This command swaps two commands.
+\newcommand{\swapcommands}[2]{
   \let\temp#1
   \let#1#2
   \let#2\temp
 }
+% I like to swap the differents epsilons and the different phis:
 \swapcommands{\phi}{\varphi}
 \swapcommands{\epsilon}{\varepsilon}
 
@@ -167,7 +177,6 @@
    \fi
    % Det heter sammandrag på svenska
    \renewcommand{\abstractname}{Sammandrag}
-   \renewcommand{\sectionname}{Avsnitt}
  }
  \iflanguage{swedish}{%if swedish is the main language:
    \usepackage{icomma}}
