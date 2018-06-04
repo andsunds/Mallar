@@ -77,7 +77,9 @@
 \usepackage{physics}
 %This line is missing from the physics package to give automatic
 %backet sizing for the error function \erf
-\let\errorfunction\erf \DeclareDocumentCommand\erf{}{\opbraces{\errorfunction}}
+%\let\errorfunction\erf
+\DeclareMathOperator\errorfunction{erf}
+\DeclareDocumentCommand\erf{}{\opbraces{\errorfunction}}
 
 %% Enables formating of matricres:
 \usepackage{mathtools} %e.g.: \begin{pmatrix*}[r] ... \end{pmatrix*}
