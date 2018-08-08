@@ -1,18 +1,11 @@
 \NeedsTeXFormat{LaTeX2e}[2011/06/27]%Arbitrarily chosen but not too old
-\ProvidesPackage{custom_as}[2018/07/13 Custom (Andréas)]
+\ProvidesPackage{custom_as}[2018/08/08 Custom (Andréas)]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Options %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% To include MATLAB code. 
-%% N.B.: mcode is a separate package, you must have mcode.sty in your
-%% directory 
-\newif\if@mcode\@mcodefalse
-\DeclareOption{mcode}{
-\@mcodetrue
-}
 %% Some things needs to be changed for the Swedish babel settings
 \newif\if@swedish\@swedishfalse
 \DeclareOption{swedish}{
@@ -227,14 +220,14 @@
 
 
 %% If mcode is used: 
-\if@mcode
-   \usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
-   \usepackage{listings} 
-   \lstloadlanguages{matlab} 
-   \lstset{language=matlab} 
-   \lstset{literate= {å}{{\r{a}}}1 {ä}{{\"a}}1 {ö}{{\"o}}1 {Å}{{\r{A}}}1
-           {Ä}{{\"A}}1 {Ö}{{\"O}}1}%För att få svenska bokstäver från MATLAB.
-\fi
+% \if@mcode
+%    \usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+%    \usepackage{listings} 
+%    \lstloadlanguages{matlab} 
+%    \lstset{language=matlab} 
+%    \lstset{literate= {å}{{\r{a}}}1 {ä}{{\"a}}1 {ö}{{\"o}}1 {Å}{{\r{A}}}1
+%            {Ä}{{\"A}}1 {Ö}{{\"O}}1}%För att få svenska bokstäver från MATLAB.
+% \fi
 
 
 
