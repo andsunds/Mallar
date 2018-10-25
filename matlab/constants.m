@@ -20,8 +20,9 @@ G=6.67384e-11;        %N m^2/kg^2 = m^3 /(kg s^2)
 
 
 %%%%%%%%%%%%%%%%%% non-SI %%%%%%%%%%%%%%%%%%
-E_h=4.35974434e-18/e; %eV
-R=m_e*e^4/(8*epsilon_0^2*h^3*c);
+E_h=4.35974434e-18/e;            %eV
+R=m_e*e^4/(8*epsilon_0^2*h^3*c); %m^-1
 
+N_A=6.022140857e23; %mol^-1
 
-save('~/MATLAB/constants.mat')
+save('~/Documents/MATLAB/constants.mat')
