@@ -39,15 +39,33 @@ swedish, english %% Make sure to put the main language last!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+%% If you want to use an external file for the title page
+%\input{titlepages.tex}
+
+
 %%%%%%%%%%%%%%%%%%%% vvv Internal title page vvv %%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
 \title{}
 \author{}
 \date{\today}
 
 \maketitle
+
+%% Page numbering:
+\pagenumbering{roman} %% roman page numbering
+%\thispagestyle{empty} \pagestyle{empty} %% no page numbers 
+
 %% The abstract of the document
-% \begin{abstract} 
-% \end{abstract}
+\begin{abstract} 
+
+
+\end{abstract}
+\newpage
+\tableofcontents
+\end{titlepage}
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
 %%%%%%%%%%%%%%%%%%%% ^^^ Internal title page ^^^ %%%%%%%%%%%%%%%%%%%%%
 %% If you want a list of all todos
 %\todolist
@@ -75,9 +93,9 @@ swedish, english %% Make sure to put the main language last!
 %% Citations are as usual: \cite{example_article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% Appendices %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\clearpage  %% on a new page 
-%\appendix   %% This will change the page numbering to A1, A2, A3, ...;
-             %% and also change the sections to A, A.1, ...; B, B.1, ...
+% \clearpage  %% on a new page 
+% \appendix   %% This will change the page numbering to A1, A2, A3, ...;
+              %% and also change the sections to A, A.1, ...; B, B.1, ...
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
