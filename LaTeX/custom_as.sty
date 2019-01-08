@@ -111,6 +111,9 @@
 %% A straight µ for the prefix:
 % \usepackage{upgreek}\newcommand{\micro}{\ensuremath{\upmu}}
 \newcommand{\micro}{\text{\textmu}}
+% The \textmu command is defined in the textcomp package; it's
+% intended to be used outside amth mode, hence the \text{} surrounding
+% it. 
 
 %% 'e' and 'i' should be straight:
 \newcommand{\ee}{\mathrm{e}}
