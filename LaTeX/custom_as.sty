@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[2011/06/27]%Arbitrarily chosen but not too old
-\ProvidesPackage{custom_as}[2018/08/08 Custom (Andréas)]
+\ProvidesPackage{custom_as}[2020/08/13 Custom (Andréas)]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -21,7 +21,12 @@
 %% option. 
 \newif\if@fncapx\@fncapxfalse
 \DeclareOption{fncapx}{
-\@fncapxfalse
+\@fncapxtrue
+}
+
+\newif\if@nolmodern\@nolmodernfalse
+\DeclareOption{nolmodern}{
+\@oldinttrue
 }
 \ProcessOptions\relax
 
@@ -38,28 +43,24 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{textcomp}
+\if@nolmodern
 \usepackage{lmodern}
+\fi
 \usepackage{helvet}
 \usepackage{units}
-\usepackage{color}
+\usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{hyperref}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% Own addons %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% BBM letters for the common sets of numbers:
-\usepackage{bbm}
-\newcommand{\N}{\ensuremath{\mathbbm{N}}}
-\newcommand{\Z}{\ensuremath{\mathbbm{Z}}}
-\newcommand{\Q}{\ensuremath{\mathbbm{Q}}}
-\newcommand{\R}{\ensuremath{\mathbbm{R}}}
-\newcommand{\C}{\ensuremath{\mathbbm{C}}}
 %% Straight d's for derivatives and integrals:
 \newcommand{\rd}{\ensuremath{\mathrm{d}}}
 \newcommand{\id}{\ensuremath{\,\rd}}
 %% Nicer references in text:
-\usepackage{cite}
+\usepackage{natbib}
 %% Captions for subfigures:
 \usepackage{subcaption} 
 %% To be able to include PDF documents:
@@ -109,7 +110,6 @@
 \newcommand{\apxref}{\appendixname~\ref}
 
 %% A straight µ for the prefix:
-% \usepackage{upgreek}\newcommand{\micro}{\ensuremath{\upmu}}
 \newcommand{\micro}{\text{\textmu}}
 % The \textmu command is defined in the textcomp package; it's
 % intended to be used outside amth mode, hence the \text{} surrounding
@@ -129,7 +129,12 @@
   \oalign{$\scriptstyle({+})$\cr
           \noalign{\kern-.3ex}
           \hfil$\scriptscriptstyle-$\hfil\cr}%
-}}}}
+      }}}}
+
+%% Command for capitalizing stuff inside commands
+\newcommand{\Capitalize}{%
+  \expandafter\MakeUppercase\expandafter
+  }
 
 %% This command swaps two commands.
 \newcommand{\swapcommands}[2]{
@@ -138,8 +143,8 @@
   \let#2\temp
 }
 % I like to swap the differents epsilons and the different phis:
-\swapcommands{\phi}{\varphi}
-\swapcommands{\epsilon}{\varepsilon}
+%\swapcommands{\phi}{\varphi}
+%\swapcommands{\epsilon}{\varepsilon}
 
 
 %% Define italic versions of bf and sf in math mode
@@ -179,6 +184,18 @@
  \iflanguage{swedish}{%if swedish is the main language:
    \usepackage{icomma}}
 \fi
+
+%% Ser till att det blir rätt namn i rubriken i ToC
+\addto\captionsenglish{
+  % Olika documentclasses har olika namn på referensvariabeln.
+  \ifdefined\refname
+  \renewcommand{\refname}{References}
+  \fi
+  \ifdefined\bibname
+  \renewcommand{\bibname}{References}
+  \fi
+}
+
 
 
 %% Redefines the appendix environment
