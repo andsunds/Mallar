@@ -1,0 +1,39 @@
+Notes on what need to be added from =jpp-doi.bst= to =jpp-like.bst= in
+order to create the =jpp-like-doi.bst= style file.
+
+* Add `sortyear` to `ENTRY` list
+* Try to get "~\& " (non-breaking space before ampersand)
+Easiest way is to change
+```
+"\&"
+space.word * t *
+```
+into
+```
+"~\& " * t *
+```
+* Add effect of sort year to `presort` and `bib.sort.order` `FUNCTION`s
+** It should be looking something like:
+```
+  sortyear field.or.null sortify
+  *
+  "    "
+  *
+  title field.or.null
+  sort.format.title
+  *
+  #1 entry.max$ substring$
+  'sort.key$ :=
+```
+* Modify list of LaTeX lines of code added to the `begin.bib` `preamble$` 
+** Add changes to "\bibsep" and "\bbihang"
+The lines
+```
+  "\setlength{\bibsep}{0.5ex}"
+  write$ newline$
+  "\setlength{\bibhang}{5ex}"
+  write$ newline$
+```
+should be added *before* the line with `"\begin{thebibliography}...`. 
+** Change "\doi" to
+"\providecommand{\doi}[1]{\textsc{doi}:~\href{http://dx.doi.org/#1}{\nolinkurl{#1}}}"
