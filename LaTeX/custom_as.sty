@@ -159,11 +159,11 @@
 
 %% Redefines the integrals:
 \let\oldint\int
-\let\newint{\oldint\limits}
+\newcommand{\newint}{\oldint\limits}
 \if@oldint
    %Does nothing if the option "oldint" is used
 \else
-   \renewcommand{\int}{\oldint\limits}
+   \renewcommand{\int}{\newint}
 \fi
 
 
