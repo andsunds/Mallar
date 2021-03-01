@@ -158,10 +158,11 @@
 \newcommand{\mathbfit}[1]{\boldsymbol{#1}}
 
 %% Redefines the integrals:
+\let\oldint\int
+\let\newint{\oldint\limits}
 \if@oldint
-%Does nothing if the option "oldint" is used
+   %Does nothing if the option "oldint" is used
 \else
-   \let\oldint\int 
    \renewcommand{\int}{\oldint\limits}
 \fi
 
