@@ -31,9 +31,14 @@ The lines
 ```
   "\setlength{\bibsep}{0.5ex}"
   write$ newline$
-  "\setlength{\bibhang}{5ex}"
+  "\makeatletter \if@twocolumn \setlength{\bibhang}{1ex}"
+  write$ newline$
+  "\else  \setlength{\bibhang}{5ex} \fi \makeatother"
   write$ newline$
 ```
 should be added *before* the line with `"\begin{thebibliography}...`. 
+
+Note that this modification changes the size `\bibhang` depending on
+whether or not the document is `twocolumn`.
 ** Change "\doi" to
 "\providecommand{\doi}[1]{\textsc{doi}:~\href{http://dx.doi.org/#1}{\nolinkurl{#1}}}"

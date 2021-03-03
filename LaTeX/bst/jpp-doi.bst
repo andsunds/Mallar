@@ -1785,7 +1785,9 @@ FUNCTION {begin.bib}
   if$
   "\setlength{\bibsep}{0.5ex}"
   write$ newline$
-  "\setlength{\bibhang}{5ex}"
+  "\makeatletter \if@twocolumn \setlength{\bibhang}{1ex}"
+  write$ newline$
+  "\else \setlength{\bibhang}{5ex} \fi \makeatother"
   write$ newline$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
   write$ newline$
