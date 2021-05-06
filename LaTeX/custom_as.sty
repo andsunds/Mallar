@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}[2011/06/27]%Arbitrarily chosen but not too old
-\ProvidesPackage{custom_as}[2020/08/13 Custom (Andréas)]
+\ProvidesPackage{custom_as}[2021/05/06 Custom (Andréas)]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -38,26 +38,25 @@
 \ProcessOptions\relax
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% Basic stuff %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{babel} %N.B.! make sure the language is in the options to
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{babel} %N.B.! make sure the language is in the options to
                    %the document class
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{textcomp}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{textcomp}
 \if@nolmodern
-\usepackage{lmodern}
+\RequirePackage{lmodern}
 \fi
-\usepackage{helvet}
-\usepackage{units}
-\usepackage{xcolor}
-\usepackage{graphicx}
-\usepackage[hidelinks]{hyperref}
+\RequirePackage{helvet}
+\RequirePackage{units}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage[hidelinks]{hyperref}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -67,13 +66,11 @@
 \newcommand{\rd}{\ensuremath{\mathrm{d}}}
 \newcommand{\id}{\ensuremath{\,\rd}}
 %% Nicer references in text:
-\usepackage{natbib}
-%% Captions for subfigures:
-\usepackage{subcaption} 
+\RequirePackage{natbib}
 %% To be able to include PDF documents:
-\usepackage{pdfpages}
+\RequirePackage{pdfpages}
 %% This packages has so much good stuff (see: >> texdoc physics ).
-\usepackage{physics}
+\RequirePackage{physics}
 %This line is missing from the physics package to give automatic
 %backet sizing for the error function \erf
 %\let\errorfunction\erf
@@ -81,21 +78,21 @@
 \DeclareDocumentCommand\erf{}{\opbraces{\errorfunction}}
 
 %% Enables formating of matricres:
-\usepackage{mathtools} %e.g.: \begin{pmatrix*}[r] ... \end{pmatrix*}
+\RequirePackage{mathtools} %e.g.: \begin{pmatrix*}[r] ... \end{pmatrix*}
 %% Makes it possible to put large amounts of text as comments:
-\usepackage{comment} %e.g.: \begin{comment}
+\RequirePackage{comment} %e.g.: \begin{comment}
 %% Enables you to cancel expressions in mathmode
-\usepackage{cancel} %e.g. \cancel{x}
+\RequirePackage{cancel} %e.g. \cancel{x}
 
 %% No need to use this package if its not needed. (It generates an
 %% irritation waring.)
 \if@fncapx 
   %% To be able to add "Appendix" as a header in the ToC:
-  \usepackage{tocstyle}
+  \RequirePackage{tocstyle}
   \usetocstyle{standard}%För att få en vanlig TOC
   %               % vv no page numbers for part vv
   \settocstylefeature[-1]{pagenumberbox}{\csname @gobble\endcsname}
-  \usepackage[nottoc]{tocbibind} %Puts a 'Reference' entry in the ToC.
+  \RequirePackage[nottoc]{tocbibind} %Puts a 'Reference' entry in the ToC.
 \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -104,7 +101,7 @@
 %% Partial derivative 'd':
 \newcommand{\pd}{\ensuremath{\partial}}
 %% Date format according to ISO-8601:
-\usepackage{datetime2}
+\RequirePackage{datetime2}
 %% Degrees Celcius:
 \newcommand{\degC}{\ensuremath{\,^\circ\mathrm{C}}}
 %% Figure references:
@@ -214,7 +211,7 @@
 }
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Redefines the appendix environment
 \let\oldappendix\appendix
 \if@fncapx

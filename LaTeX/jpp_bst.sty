@@ -1,0 +1,43 @@
+\NeedsTeXFormat{LaTeX2e}[2011/06/27]%Arbitrarily chosen but not too old
+\ProvidesPackage{jpp_bst}[2021/05/06 Custom formatting for JPP-like bib sty]
+
+\RequirePackage{hyperref}
+\RequirePackage{natbib}
+\RequirePackage{etoolbox}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Patch so that only the year in the author-year citation is
+%%% colored, if `colorlinks=true`
+
+%% patch for \citep
+\patchcmd{\NAT@citex}
+{\@citea\NAT@hyper@{%
+    \NAT@nmfmt{\NAT@nm}%
+    \hyper@natlinkbreak{\NAT@aysep\NAT@spacechar}{\@citeb\@extra@b@citeb}%
+    \NAT@date}}
+{\@citea{\hypersetup{citecolor=black}\NAT@hyper@{%
+      \NAT@nmfmt{\NAT@nm}}}%
+  \NAT@aysep\NAT@spacechar\NAT@hyper@{\NAT@date}%
+}{}{}
+%% patch for \citet
+\patchcmd{\NAT@citex}
+{\@citea\NAT@hyper@{%
+    \NAT@nmfmt{\NAT@nm}%
+    \hyper@natlinkbreak{\NAT@spacechar\NAT@@open\if*#1*\else#1\NAT@spacechar\fi}%
+    {\@citeb\@extra@b@citeb}%
+    \NAT@date}}
+{\@citea{\hypersetup{citecolor=black}\NAT@hyper@{%
+      \NAT@nmfmt{\NAT@nm}}}%
+  \NAT@spacechar\NAT@@open\if*#1*\else#1\NAT@spacechar\fi\NAT@hyper@{\NAT@date}}
+{}{}
+
+%% patch for \citeauthor (name still in black)
+%\pretocmd{\NAT@citexnum}{\@ifnum{\NAT@ctype>\z@}{\let\NAT@hyper@\relax}{}}{}{}
+%\pretocmd{\NAT@citex}{\@ifnum{\NAT@ctype=\@ne}{\let\NAT@hyper@\relax}{}}{}{}
+\pretocmd{\NAT@citex}{\@ifnum{\NAT@ctype=\@ne}{\hypersetup{citecolor=black}}{}}{}{}
+
+
+
+\endinput
