@@ -146,7 +146,6 @@
   \let#2\temp
 }
 
-
 %% Define italic versions of bf and sf in math mode
 \DeclareMathAlphabet{\mathsfit}{\encodingdefault}{\sfdefault}{m}{sl}
 \let\mathsfrm\mathsf
@@ -163,7 +162,7 @@
    \renewcommand{\int}{\newint}
 \fi
 
-
+%% Refines the hyperlink colors to a less piercing scheme
 \if@colorlinks
 \definecolor{linkblue}{rgb}{0.1,0.15,.8}
 \definecolor{citeblue}{rgb}{0,0.45,0.8}
@@ -176,6 +175,9 @@
   urlcolor=urlblue,
 }
 \fi  
+
+%% A short command for making text red
+\newcommand{\red}{\textcolor{red}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% Bigger stuff %%%%%%%%%%%%%%%%%%%%%%%%%%%%
