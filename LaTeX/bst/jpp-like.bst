@@ -597,7 +597,7 @@ FUNCTION {format.doi}
 { doi empty$
     { "" }
     {
-      "\doi{" doi * "}" *
+      "\DOI{" doi * "}" *
     }
   if$
 }
@@ -1793,7 +1793,7 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\urlprefix}{URL }"
   write$ newline$
-  "\providecommand{\doi}[1]{\textsc{doi}:~\href{http://dx.doi.org/#1}{\nolinkurl{#1}}}"
+  "\providecommand{\DOI}[1]{\textsc{doi}:~\href{http://dx.doi.org/#1}{\nolinkurl{#1}}}"
   write$ newline$
   "\providecommand{\eprint}[2][]{\url{#2}}"
   write$ newline$
