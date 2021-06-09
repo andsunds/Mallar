@@ -42,3 +42,16 @@ Note that this modification changes the size `\bibhang` depending on
 whether or not the document is `twocolumn`.
 ** Change "\doi" to
 "\providecommand{\DOI}[1]{\textsc{doi}:~\href{http://dx.doi.org/#1}{\nolinkurl{#1}}}"
+* Remove case formatting of thesis.type
+  In the function `format.thesis.type, remove `"t" change.case$`
+  inside the if block. The end results should look something like
+```
+FUNCTION {format.thesis.type}
+{ type duplicate$ empty$
+    'pop$
+    { swap$ pop$
+      "type" bibinfo.check
+    }
+  if$
+}
+```

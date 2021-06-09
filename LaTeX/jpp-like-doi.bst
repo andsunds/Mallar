@@ -1074,7 +1074,7 @@ FUNCTION {format.thesis.type}
 { type duplicate$ empty$
     'pop$
     { swap$ pop$
-      "t" change.case$ "type" bibinfo.check
+      "type" bibinfo.check
     }
   if$
 }
