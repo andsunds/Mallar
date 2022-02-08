@@ -605,16 +605,16 @@ FUNCTION {word.in}
 { bbl.in
   " " * }
 
-FUNCTION {doilink}
-{ duplicate$ empty$
-{ pop$ "" }
-{ doi empty$
-    { skip$ }
-    { "\href{http://dx.doi.org/" doi * "}{" * swap$ * "}" * }
-  if$
-}
-if$
-}
+% FUNCTION {doilink}
+% { duplicate$ empty$
+% { pop$ "" }
+% { doi empty$
+%     { skip$ }
+%     { "\href{http://dx.doi.org/" doi * "}{" * swap$ * "}" * }
+%   if$
+% }
+% if$
+% }
 
 FUNCTION {format.date}
 {
@@ -792,7 +792,7 @@ FUNCTION {format.vol.num.pages}
     { format.journal.pages }
     { format.journal.eid }
   if$
-  doilink
+  % doilink % this makes the journal number into a hyperlink
 }
 
 FUNCTION {format.chapter.pages}
@@ -1014,10 +1014,11 @@ FUNCTION {article}
   if$
   format.issn output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 FUNCTION {book}
@@ -1050,10 +1051,11 @@ FUNCTION {book}
   if$
   format.isbn output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 FUNCTION {booklet}
@@ -1068,10 +1070,11 @@ FUNCTION {booklet}
   address "address" bibinfo.check output
   format.isbn output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 
@@ -1111,10 +1114,11 @@ FUNCTION {inbook}
     'skip$
   if$
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 
@@ -1141,10 +1145,11 @@ FUNCTION {incollection}
     }
   if$
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 FUNCTION {inproceedings}
@@ -1175,10 +1180,11 @@ FUNCTION {inproceedings}
     }
   if$
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 FUNCTION {conference} { inproceedings }
@@ -1194,10 +1200,11 @@ FUNCTION {manual}
   address "address" bibinfo.check output
   format.edition output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 
@@ -1214,10 +1221,11 @@ FUNCTION {mastersthesis}
   school "school" bibinfo.warn output
   address "address" bibinfo.check output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 
@@ -1231,10 +1239,11 @@ FUNCTION {misc}
   new.sentence
   howpublished "howpublished" bibinfo.check output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 FUNCTION {phdthesis}
@@ -1250,10 +1259,11 @@ FUNCTION {phdthesis}
   school "school" bibinfo.warn output
   address "address" bibinfo.check output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 
@@ -1275,10 +1285,11 @@ FUNCTION {proceedings}
   format.isbn output
   format.issn output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 
@@ -1295,10 +1306,11 @@ FUNCTION {techreport}
   institution "institution" bibinfo.warn output
   address "address" bibinfo.check output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 
@@ -1309,11 +1321,11 @@ FUNCTION {unpublished}
   format.date "year" output.check
   date.block
   format.title "title" output.check
-  format.doi output
-  format.url output
   new.sentence
   format.note "note" output.check
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 
