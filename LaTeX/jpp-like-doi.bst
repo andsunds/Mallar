@@ -1803,7 +1803,7 @@ FUNCTION {begin.bib}
   write$ newline$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
   write$ newline$
-  "\newcommand{\enquote}[1]{``#1''}"
+  "\providecommand{\enquote}[1]{``#1''}"
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
