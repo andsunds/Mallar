@@ -1803,13 +1803,17 @@ FUNCTION {begin.bib}
   write$ newline$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
   write$ newline$
-  "\def{\enquote}[1]{``#1''}"
+  "\providecommand{\enquote}{}"
+  write$ newline$
+  "\renewcommand{\enquote}[1]{``#1''}"
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
   "\providecommand{\urlprefix}{URL }"
   write$ newline$
-  "\def{\DOI}[1]{\textsc{doi}:~\href{https://doi.org/#1}{\nolinkurl{#1}}}"
+  "\providecommand{\DOI}]{}"
+  write$ newline$
+  "\renewcommand{\DOI}[1]{\textsc{doi}:~\href{https://doi.org/#1}{\nolinkurl{#1}}}"
   write$ newline$
   "\providecommand{\eprint}[2][]{\url{#2}}"
   write$ newline$
