@@ -1811,7 +1811,7 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\urlprefix}{URL }"
   write$ newline$
-  "\providecommand{\DOI}]{}"
+  "\providecommand{\DOI}{}"
   write$ newline$
   "\renewcommand{\DOI}[1]{\textsc{doi}:~\href{https://doi.org/#1}{\nolinkurl{#1}}}"
   write$ newline$
