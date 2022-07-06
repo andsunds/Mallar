@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `ay,nat,seq-lab,vonx,xintls,nm-rev,mcite,mct-1,mct-x3,nmft,nmft-sc,xlab-it,keyxyr,blkyear,dt-beg,yr-blk,yrp-x,note-yr,tit-qq,qx,bt-qq,thtit-a,vol-bf,vnum-sp,volp-com,pgsep-s,num-xser,jnm-x,btit-rm,bt-rm,bkpg-par,add-pub,pre-edn,isbn,issn,doi,edby-par,edbyx,blk-tit,blknt,fin-bare,ppx,ed,abr,ord,amper,and-xcom,etal-it,eprint,url,url-blk,em-it,nfss,')
+%% merlin.mbs  (with options: `ay,nat,seq-lab,vonx,xintls,nm-rev,nmlm,x10,x2,m3,mcite,mct-1,mct-x3,nmft,nmft-sc,xlab-it,keyxyr,blkyear,dt-beg,yr-blk,yrp-x,note-yr,tit-qq,qx,bt-qq,thtit-a,vol-bf,vnum-sp,volp-com,pgsep-s,num-xser,jnm-x,btit-rm,bt-rm,bkpg-par,add-pub,pre-edn,isbn,issn,doi,edby-par,edbyx,blk-tit,blknt,fin-bare,ppx,ed,abr,ord,amper,and-xcom,etal-it,eprint,url,url-blk,em-it,nfss,')
 %% ----------------------------------------
 %% *** thesis ***
 %% 
@@ -281,7 +281,7 @@ FUNCTION {bbl.mthesis}
 { "Master's thesis" }
 
 FUNCTION {bbl.phdthesis}
-{ "Ph.D. thesis" }
+{ "PhD thesis" }
 
 FUNCTION {bbl.first}
 { "1st" }
@@ -473,6 +473,15 @@ FUNCTION {format.names}
       't :=
       nameptr #1 >
         {
+          nameptr #3
+          #1 + =
+          numnames #2
+          #10 +
+          > and
+            { "others" 't :=
+              #1 'namesleft := }
+            'skip$
+          if$
           namesleft #1 >
             { ", " * t * }
             {
@@ -655,6 +664,15 @@ FUNCTION {format.full.names}
       't :=
       nameptr #1 >
         {
+          nameptr #3
+          #1 + =
+          numnames #2
+          #10 +
+          > and
+            { "others" 't :=
+              #1 'namesleft := }
+            'skip$
+          if$
           namesleft #1 >
             { ", " * t * }
             {
@@ -1615,6 +1633,15 @@ FUNCTION {sort.format.names}
       format.name$ 't :=
       nameptr #1 >
         {
+          nameptr #3
+          #1 + =
+          numnames #2
+          #10 +
+          > and
+            { "others" 't :=
+              #1 'namesleft := }
+            'skip$
+          if$
           "   "  *
           namesleft #1 = t "others" = and
             { "zzzzz" 't := }

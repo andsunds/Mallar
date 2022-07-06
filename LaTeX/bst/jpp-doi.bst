@@ -1,10 +1,10 @@
 %%
-%% This is file `jpp-doi.bst',
+%% This is file `jpp-like-doi.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `ay,nat,seq-lab,vonx,xintls,nm-rev,mcite,mct-1,mct-x3,nmft,nmft-sc,xlab-it,keyxyr,blkyear,dt-beg,yr-blk,yrp-x,note-yr,tit-qq,qx,bt-qq,thtit-a,vol-bf,vnum-sp,volp-com,pgsep-s,num-xser,jnm-x,btit-rm,bt-rm,bkpg-par,add-pub,pre-edn,isbn,issn,doi,edby-par,edbyx,blk-tit,blknt,fin-bare,ppx,ed,abr,ord,amper,and-xcom,etal-it,eprint,url,url-blk,em-it,nfss,')
+%% merlin.mbs  (with options: `ay,nat,seq-lab,vonx,xintls,nm-rev,nmlm,x10,x2,m3,mcite,mct-1,mct-x3,nmft,nmft-sc,xlab-it,keyxyr,blkyear,dt-beg,yr-blk,yrp-x,note-yr,tit-qq,qx,bt-qq,thtit-a,vol-bf,vnum-sp,volp-com,pgsep-s,num-xser,jnm-x,btit-rm,bt-rm,bkpg-par,add-pub,pre-edn,isbn,issn,doi,edby-par,edbyx,blk-tit,blknt,fin-bare,ppx,ed,abr,ord,amper,and-xcom,etal-it,eprint,url,url-blk,em-it,nfss,')
 %% ----------------------------------------
 %% *** thesis ***
 %% 
@@ -281,7 +281,7 @@ FUNCTION {bbl.mthesis}
 { "Master's thesis" }
 
 FUNCTION {bbl.phdthesis}
-{ "Ph.D. thesis" }
+{ "PhD thesis" }
 
 FUNCTION {bbl.first}
 { "1st" }
@@ -473,6 +473,15 @@ FUNCTION {format.names}
       't :=
       nameptr #1 >
         {
+          nameptr #3
+          #1 + =
+          numnames #2
+          #10 +
+          > and
+            { "others" 't :=
+              #1 'namesleft := }
+            'skip$
+          if$
           namesleft #1 >
             { ", " * t * }
             {
@@ -655,6 +664,15 @@ FUNCTION {format.full.names}
       't :=
       nameptr #1 >
         {
+          nameptr #3
+          #1 + =
+          numnames #2
+          #10 +
+          > and
+            { "others" 't :=
+              #1 'namesleft := }
+            'skip$
+          if$
           namesleft #1 >
             { ", " * t * }
             {
@@ -1074,7 +1092,7 @@ FUNCTION {format.thesis.type}
 { type duplicate$ empty$
     'pop$
     { swap$ pop$
-      "t" change.case$ "type" bibinfo.check
+      "type" bibinfo.check
     }
   if$
 }
@@ -1162,10 +1180,11 @@ FUNCTION {article}
   if$
   format.issn output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 FUNCTION {book}
@@ -1198,10 +1217,11 @@ FUNCTION {book}
   if$
   format.isbn output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 FUNCTION {booklet}
@@ -1216,10 +1236,11 @@ FUNCTION {booklet}
   address "address" bibinfo.check output
   format.isbn output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 
@@ -1259,10 +1280,11 @@ FUNCTION {inbook}
     'skip$
   if$
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 
@@ -1289,10 +1311,11 @@ FUNCTION {incollection}
     }
   if$
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 FUNCTION {inproceedings}
@@ -1323,10 +1346,11 @@ FUNCTION {inproceedings}
     }
   if$
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 FUNCTION {conference} { inproceedings }
@@ -1342,10 +1366,11 @@ FUNCTION {manual}
   address "address" bibinfo.check output
   format.edition output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 
@@ -1362,10 +1387,11 @@ FUNCTION {mastersthesis}
   school "school" bibinfo.warn output
   address "address" bibinfo.check output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 
@@ -1379,10 +1405,11 @@ FUNCTION {misc}
   new.sentence
   howpublished "howpublished" bibinfo.check output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 FUNCTION {phdthesis}
@@ -1398,10 +1425,11 @@ FUNCTION {phdthesis}
   school "school" bibinfo.warn output
   address "address" bibinfo.check output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 
@@ -1423,10 +1451,11 @@ FUNCTION {proceedings}
   format.isbn output
   format.issn output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 
@@ -1443,10 +1472,11 @@ FUNCTION {techreport}
   institution "institution" bibinfo.warn output
   address "address" bibinfo.check output
   format.doi output
-  format.url output
   new.sentence
   format.note output
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 
@@ -1457,11 +1487,11 @@ FUNCTION {unpublished}
   format.date "year" output.check
   date.block
   format.title "title" output.check
-  format.doi output
-  format.url output
   new.sentence
   format.note "note" output.check
+  new.sentence
   format.eprint output
+  format.url output
   fin.entry
 }
 
@@ -1603,6 +1633,15 @@ FUNCTION {sort.format.names}
       format.name$ 't :=
       nameptr #1 >
         {
+          nameptr #3
+          #1 + =
+          numnames #2
+          #10 +
+          > and
+            { "others" 't :=
+              #1 'namesleft := }
+            'skip$
+          if$
           "   "  *
           namesleft #1 = t "others" = and
             { "zzzzz" 't := }
@@ -1791,15 +1830,17 @@ FUNCTION {begin.bib}
   write$ newline$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
   write$ newline$
-  "\newcommand{\enquote}[1]{``#1''}"
+  "\providecommand{\enquote}{}"
+  write$ newline$
+  "\renewcommand{\enquote}[1]{``#1''}"
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
-  "\providecommand{\url}[1]{\texttt{#1}}"
-  write$ newline$
   "\providecommand{\urlprefix}{URL }"
   write$ newline$
-  "\providecommand{\DOI}[1]{\textsc{doi}:~\href{https://doi.org/#1}{\nolinkurl{#1}}}"
+  "\providecommand{\DOI}{}"
+  write$ newline$
+  "\renewcommand{\DOI}[1]{\textsc{doi}:~\href{https://doi.org/#1}{\nolinkurl{#1}}}"
   write$ newline$
   "\providecommand{\eprint}[2][]{\url{#2}}"
   write$ newline$

@@ -127,9 +127,11 @@ End of customized bst file
 % nmdash,nmd-3,%: Repeated author/editor names replaced by 3 dashes
 %--------------------
 %NUMBER OF AUTHORS IN BIBLIOGRAPHY:
-    %: (def) All authors
-% nmlm,%: Limited authors
+%   %: (def) All authors
+  nmlm,%: Limited authors
 %--------------------
+    x10,x2,%: Maximum of 12 authors
+    m3,%: Minimum of 3 authors
 %AUTHORS IN CITATIONS:
     %: (def) One author et al
   mcite,%: Some other truncation scheme
