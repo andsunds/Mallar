@@ -76,9 +76,9 @@ End of customized bst file
 %--------------------
 %ORDERING OF REFERENCES (if author-year citations)
     %: (def) Alphabetical
-  seq-lab,%: By label
+%  seq-lab,%: By label
 % seq-labc,%: By label and cite order
-% seq-key,%: By label and cite key
+ seq-key,%: By label and cite key
 % seq-yr,%: Year ordered
 % seq-yrr,%: Reverse year ordered
 % seq-no,%: Citation order

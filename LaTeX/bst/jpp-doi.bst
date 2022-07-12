@@ -1633,7 +1633,7 @@ FUNCTION {sort.format.names}
       format.name$ 't :=
       nameptr #1 >
         {
-          nameptr #3
+          nameptr #1
           #1 + =
           numnames #2
           #10 +

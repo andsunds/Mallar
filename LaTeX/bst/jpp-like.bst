@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `ay,nat,seq-lab,vonx,xintls,nm-rev,nmlm,x10,x2,m3,mcite,mct-1,mct-x3,nmft,nmft-sc,xlab-it,keyxyr,blkyear,dt-beg,yr-blk,yrp-x,note-yr,tit-qq,qx,bt-qq,thtit-a,vol-bf,vnum-sp,volp-com,pgsep-s,num-xser,jnm-x,btit-rm,bt-rm,bkpg-par,add-pub,pre-edn,isbn,issn,doi,edby-par,edbyx,blk-tit,blknt,fin-bare,ppx,ed,abr,ord,amper,and-xcom,etal-it,eprint,url,url-blk,em-it,nfss,')
+%% merlin.mbs  (with options: `ay,nat,seq-key,vonx,xintls,nm-rev,nmlm,x10,x2,m3,mcite,mct-1,mct-x3,nmft,nmft-sc,xlab-it,keyxyr,blkyear,dt-beg,yr-blk,yrp-x,note-yr,tit-qq,qx,bt-qq,thtit-a,vol-bf,vnum-sp,volp-com,pgsep-s,num-xser,jnm-x,btit-rm,bt-rm,bkpg-par,add-pub,pre-edn,isbn,issn,doi,edby-par,edbyx,blk-tit,blknt,fin-bare,ppx,ed,abr,ord,amper,and-xcom,etal-it,eprint,url,url-blk,em-it,nfss,')
 %% ----------------------------------------
 %% *** thesis ***
 %% 
@@ -1714,11 +1714,7 @@ FUNCTION {presort}
   'sort.label :=
   sort.label
   *
-  "    "
-  *
-  title field.or.null
-  sort.format.title
-  *
+  "    " * cite$ *
   #1 entry.max$ substring$
   'sort.key$ :=
 }
@@ -1782,11 +1778,7 @@ FUNCTION {bib.sort.order}
   *
   year field.or.null sortify
   *
-  "    "
-  *
-  title field.or.null
-  sort.format.title
-  *
+  "    " * cite$ *
   #1 entry.max$ substring$
   'sort.key$ :=
 }
