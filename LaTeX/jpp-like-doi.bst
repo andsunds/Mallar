@@ -1633,11 +1633,8 @@ FUNCTION {sort.format.names}
       format.name$ 't :=
       nameptr #1 >
         {
-          nameptr #1
-          #1 + =
-          numnames #2
-          #10 +
-          > and
+          nameptr #2 =
+          numnames #3 > and
             { "others" 't :=
               #1 'namesleft := }
             'skip$
